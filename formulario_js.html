@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title> Formulário </title>
+    <h1>Cadastro de Clientes</h1>
+<script type="text/javascript">
+
+function SomenteNumero(e){
+            var tecla = (window.event) ? event.keyCode:e.witch;
+            if((tecla > 47 && tecla < 58))
+            return true;
+            else{
+                return false;
+            }
+        }
+    </script>
+        <script type="text/javascript">
+    function valida () {
+        st=1;
+        if(document.cadastro.nome.value == "") {
+            alert("Por favor informe o Nome");
+            document.cadastro.nome.focus();
+            st=0;
+        } else if (document.cadastro.email.value == ""){
+            alert("Por favor informe o Email");
+            document.cadastro.email.focus();
+            st=0;
+       } else if (document.cadastro.idade.value == ""){
+            alert("Por favor informe a idade");
+            document.cadastro.idade.focus();
+        st=0; 
+        } if (st==1) {
+            alert ("Formulário validado com Sucesso!!");
+            document.cadastro.submit();
+        }
+        }
+
+       
+    </script>
+
+    <script type = "text/javascript"> 
+    function naoColar(){
+        alert ("Digite manualmente!!");
+        return false;
+    }
+    </script>
+</head>
+
+<body>
+    <form name="cadastro">
+        <fieldset> <legend>Dados Cadastrais</legend>
+       <p> <label> Nome:
+             <input type="text" name="nome" autofocus />
+        </label> </p>
+        
+        <p><label>Email:
+            <input type="email" name="email" autofocus />
+        </label> </p>
+
+        <p><label>Idade:
+            <input  name="idade" type="text" OnPaste = "return naoColar();" onkeypress="return SomenteNumero(event)"/>
+            </label></p>
+            <button> Voltar
+        <name="Voltar" />
+    </button>
+    
+        <input type="reset" name="limpar" />
+    
+        <input value="Enviar" onclick="valida()" type="button" formaction="envia.html"/>
+    
+
+    </fieldset>
+    </form>
+
+</body>
+</html>
